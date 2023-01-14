@@ -1,0 +1,30 @@
+{
+	"name": "advanced-typescript",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"types": "dist/index.module.d.ts",
+	"scripts": {
+		"watch": "tsc --watch",
+		"init": "npm i",
+		"lint": "eslint . --ext .ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/snotmare/advanced-typescript.git"
+	},
+	"author": "Benjamin J Ferguson",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/snotmare/advanced-typescript/issues"
+	},
+	"homepage": "https://github.com/snotmare/advanced-typescript#readme",
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.48.1",
+		"@typescript-eslint/parser": "^5.48.1",
+		"eslint": "^8.31.0",
+		"eslint-plugin-security": "^1.6.0",
+		"eslint-plugin-unused-imports": "^2.0.0",
+		"typescript": "^4.9.4"
+	}
+}
