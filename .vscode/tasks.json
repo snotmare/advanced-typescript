@@ -17,6 +17,12 @@
 		},
 		{
 			"type": "npm",
+			"script": "start",
+			"problemMatcher": [],
+			"label": "npm: start"
+		},
+		{
+			"type": "npm",
 			"script": "watch",
 			"problemMatcher": [],
 			"label": "npm: watch",
