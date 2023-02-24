@@ -1,56 +1,71 @@
-interface User {
-	firstName: string;
-	lastName: string;
-	middleName: string;
-	birthdate: Date;
-}
+import { Character } from './data/character';
+import { CharacterData, Gimli } from './data/character-data';
 
-//Example Omit
-type OmitUser = Omit<User, 'middleName' | 'birthdate'>;
+//#region Example Omit
+type OmitCharacter = Omit<Character, 'id'>;
 
 export function exampleOmit() {
-	writeOmitUser({
-		firstName: 'Remus',
-		lastName: 'Lupin'
+	writeOmitCharacter({
+		name: 'Legolas',
+		level: 10
 	});
 
-	let user: User = {
-		firstName: 'Ronald',
-		lastName: 'Bilius',
-		middleName: 'Weasley',
-		birthdate: new Date()
-	};
-
-	writeOmitUser(user);
+	writeOmitCharacter(Gimli);
 }
 
-function writeOmitUser(user: OmitUser) {
-	console.log(`${user.firstName} ${user.lastName}`);
-	console.log(user);
+function writeOmitCharacter(character: OmitCharacter) {
+	console.log(`${character.name} level ${character.level}`);
+	console.log(JSON.stringify(character));
 }
+//#endregion
 
 
 
-//Example pick
-type PickUser = Pick<User, 'firstName' | 'lastName'>;
+//#region Example Pick
+type PickCharacter = Pick<Character, 'name' | 'level'>;
 
 export function examplePick() {
-	writePickUser({
-		firstName: 'Remus',
-		lastName: 'Lupin'
+	writePickCharacter({
+		name: 'Legolas',
+		level: 10
 	});
 
-	let user: User = {
-		firstName: 'Ronald',
-		lastName: 'Bilius',
-		middleName: 'Weasley',
-		birthdate: new Date()
-	};
-
-	writePickUser(user);
+	writePickCharacter(Gimli);
 }
 
-function writePickUser(user: PickUser) {
-	console.log(`${user.firstName} ${user.lastName}`);
-	console.log(user);
+function writePickCharacter(character: PickCharacter) {
+	console.log(`${character.name} level ${character.level}`);
+	console.log(JSON.stringify(character));
 }
+//#endregion
+
+
+
+//#region Example Partial
+type PartialCharacter = Partial<Character>;
+
+export function examplePartial() {
+	writePartialCharacter({
+		name: 'Sam'
+	});
+}
+
+function writePartialCharacter(character: PartialCharacter) {
+	console.log(`${character.name} level ${character.level}`);
+	console.log(JSON.stringify(character));
+}
+//#endregion
+
+
+
+//#region Realistic example
+export function exampleReal() {
+	//Example using Omit (see CharacterData constructor)
+	let characterData = new CharacterData();
+
+	console.log(characterData.get(1));
+	
+	//Example using partial (see search method)
+	characterData.search({ level: 1 });
+}
+//#endregion

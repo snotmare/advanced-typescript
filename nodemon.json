@@ -1,0 +1,11 @@
+{
+	"env": {
+		"execMap": {
+			"ts": "node --inspect --require ts-node/register"
+	  	},
+		"restartable": "rs",
+		"watch": [
+			"src"
+		]
+	}
+}

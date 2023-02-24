@@ -7,7 +7,7 @@
 	"scripts": {
 		"init": "npm i",
 		"lint": "eslint . --ext .ts",
-		"start": "nodemon index.ts",
+		"start": "nodemon src/index.ts",
 		"watch": "tsc --watch"
 	},
 	"repository": {
