@@ -23,7 +23,6 @@ function incrementStat(stats: CharacterStats, statType: keyof CharacterStats) {
 
 
 
-
 //#region keyof foreach
 export function exampleForEach() {
 	let stats: CharacterStats = {
@@ -57,7 +56,7 @@ export function exampleProperty() {
 		charisma: 10
 	};
 
-	logObject(stats, {charisma: true});
+	logObject(stats, {charisma: true, dexterity: false, wisdom: true});
 }
 
 function logObject<T extends object>(value: T, printKeys: {[K in keyof T]?: boolean}) {
@@ -69,7 +68,7 @@ function logObject<T extends object>(value: T, printKeys: {[K in keyof T]?: bool
 
 
 
-//#region keyof property
+//#region keyof property part 2
 type Transform<T extends object, V> = {
 	[K in keyof T]?: V
 };

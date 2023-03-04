@@ -60,12 +60,14 @@ function writePartialCharacter(character: PartialCharacter) {
 
 //#region Realistic example
 export function exampleReal() {
-	//Example using Omit (see CharacterData constructor)
+	//Example using Omit (see SqlData and CharacterData constructors)
 	let characterData = new CharacterData();
 
 	console.log(characterData.get(1));
 	
 	//Example using partial (see search method)
 	characterData.search({ level: 1 });
+
+	//TODO What if we only want to allow searching by certain fields?
 }
 //#endregion

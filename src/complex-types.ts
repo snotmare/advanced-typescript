@@ -3,7 +3,7 @@ import { Gandalf } from './data/character-data';
 //#region union
 type Union<T> = (T extends object ? (x: T) => unknown : never) extends (x: infer R) => unknown ? R : never;
 
-export function exampleKeyof() {
+export function exampleUnion() {
 	let value1 = {
 		firstName: 'Frodo',
 		lastName: 'Baggins'

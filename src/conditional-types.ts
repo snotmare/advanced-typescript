@@ -24,7 +24,6 @@ function levelUp<T extends Character>(character: T) {
 	character.level++;
 	console.log(`${character.name} is now level ${character.level}!`);
 }
-
 //#endregion
 
 
@@ -34,8 +33,10 @@ export function exampleUnion() {
 	let stringValue = increment('4');
 	console.log(`${stringValue} has a length of ${stringValue.length}`);
 
-	let numericValue = increment(5.5);
+	let numericValue = increment(4.5);
 	console.log(`${numericValue} as an exponent ${numericValue.toExponential()}`);
+
+	//TODO Notice the return type is the same value being passed in
 }
 
 function increment<V extends string | number>(value: V): V {
@@ -52,22 +53,14 @@ function increment<V extends string | number>(value: V): V {
 
 
 //#region Example conditional
-interface NumericResult {
-	value: number;
-}
-
-interface StringResult {
-	value: string;
-}
-
-type Result<V extends string | number> = V extends string ? StringResult : NumericResult;
+type Result<V extends string | number> = V extends string ? string : number;
 
 export function exampleConditional() {
-	let stringResult = incrementResult('4');
-	console.log(`${stringResult.value} has a length of ${stringResult.value.length}`);
+	let stringValue = incrementResult('4');
+	console.log(`${stringValue} has a length of ${stringValue.length}`);
 
-	let numericResult = incrementResult(5.5);
-	console.log(`${numericResult.value} as an exponent ${numericResult.value.toExponential()}`);
+	let numericValue = incrementResult(4.5);
+	console.log(`${numericValue} as an exponent ${numericValue.toExponential()}`);
 }
 
 function incrementResult<V extends string | number>(value: V): Result<V> {
@@ -77,21 +70,20 @@ function incrementResult<V extends string | number>(value: V): Result<V> {
 		value++;
 	}
 
-	return <Result<V>>{
-		value: value
-	};
+	return <Result<V>>value;
 }
 //#endregion
 
 
 
 //#region Example infer
-type Flatten<Type> = Type extends Array<infer Item> ? Item : Type;
+type Flatten<T> = T extends Array<infer Item> ? Item : T;
 // ...or...
-// type Flatten<Type> = Type extends (infer Item)[] ? Item : Type;
+// type Flatten<T> = T extends (infer Item)[] ? Item : T;
 
 type StringType = Flatten<string[]>;
 type NumericType = Flatten<number[]>;
+type NonArrayType = Flatten<string>;
 
 
 //Slightly more complicated infer
@@ -103,14 +95,14 @@ type FlattenValue<T> = T extends Array<infer ArrayItem>
 
 
 export function exampleFlatten() {
-	iterate('Hello world', value => console.log(value));
+	iterate(new Date(), value => console.log(`Today is: ${value.toDateString()}`));
 
 	iterate(['Cats', 'Dogs', 'Pigs'], value => console.log(value));
 
-	let map = new Map<number, string>()
-		.set(1, '1')
-		.set(2, '2')
-		.set(3, '3');
+	let map = new Map<string, number>()
+		.set('1', 1)
+		.set('2', 2)
+		.set('3', 3);
 	
 	iterate(map, value => console.log(value));
 }
