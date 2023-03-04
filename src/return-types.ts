@@ -17,7 +17,6 @@ function logValue(value: string): void {
 
 
 
-
 //#region Example returning undefined
 export function exampleUndefined() {
 	let character = getCharacter(2);

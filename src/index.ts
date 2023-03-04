@@ -11,7 +11,7 @@ if(ReturnTypes || UtilityTypes || ConditionalTypes || KeyOf || ComplexTypes) {}
 // ReturnTypes.exampleUndefined();
 // ReturnTypes.exampleNever();
 
-UtilityTypes.exampleOmit();
+// UtilityTypes.exampleOmit();
 // UtilityTypes.examplePick();
 // UtilityTypes.examplePartial();
 // UtilityTypes.exampleReal();
