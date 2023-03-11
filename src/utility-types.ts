@@ -63,8 +63,6 @@ export function exampleReal() {
 	//Example using Omit (see SqlData and CharacterData constructors)
 	let characterData = new CharacterData();
 
-	console.log(characterData.get(1));
-	
 	//Example using partial (see search method)
 	characterData.search({ level: 1 });
 
