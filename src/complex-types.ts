@@ -1,29 +1,5 @@
 import { Gandalf } from './data/character-data';
 
-//#region union
-type Union<T> = (T extends object ? (x: T) => unknown : never) extends (x: infer R) => unknown ? R : never;
-
-export function exampleUnion() {
-	let value1 = {
-		firstName: 'Frodo',
-		lastName: 'Baggins'
-	};
-	
-	let value2 = {
-		age: 3
-	};
-	
-	let merged = merge(value1, value2);
-	console.log(merged);
-}
-
-function merge<T extends object[]>(...values: T): Union<T[number]> {
-	return Object.assign({}, ...values);
-}
-//#endregion
-
-
-
 //#region recursive partial
 
 type RecursivePartial<T> = {
@@ -94,5 +70,32 @@ let bob: Person = {
 export function exampleDeepPartial() {
 	let sameGrandparent = equalsPartial(bob, {dad: {dad: {name: 'Bob'}}});
 	console.log(`Same grandparent: ${sameGrandparent}`);
+}
+//#endregion
+
+
+
+//#region union
+
+// Explanation: https://fettblog.eu/typescript-union-to-intersection/
+type Intersect<T> = (T extends object ? (x: T) => unknown : never) extends (x: infer R) => unknown ? R : never;
+
+export function exampleUnion() {
+	let value1 = {
+		firstName: 'Frodo',
+		lastName: 'Baggins'
+	};
+	
+	let value2 = {
+		age: 3
+	};
+	
+	
+	let merged = merge(value1, value2);
+	console.log(merged);
+}
+
+function merge<T extends object[]>(...values: T): Intersect<T[number]> {
+	return Object.assign({}, ...values);
 }
 //#endregion
