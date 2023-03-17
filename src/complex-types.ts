@@ -3,7 +3,7 @@ import { Gandalf } from './data/character-data';
 //#region recursive partial
 
 type RecursivePartial<T> = {
-	[P in keyof T]?: RecursivePartial<T[P]>;
+	[K in keyof T]?: RecursivePartial<T[K]>;
 };
 
 export function examplePartial() {
@@ -57,7 +57,7 @@ interface Person {
 	mom?: Person;
 }
 
-let bob: Person = {
+let bob3: Person = {
 	name: 'Bob III',
 	dad: {
 		name: 'Bob II',
@@ -68,7 +68,7 @@ let bob: Person = {
 };
 
 export function exampleDeepPartial() {
-	let sameGrandparent = equalsPartial(bob, {dad: {dad: {name: 'Bob'}}});
+	let sameGrandparent = equalsPartial(bob3, {dad: {dad: {name: 'Bob'}}});
 	console.log(`Same grandparent: ${sameGrandparent}`);
 }
 //#endregion
