@@ -12,12 +12,12 @@ export class SqlData<T extends object> {
 	}
 
 	search(search: Partial<T>): T[] {
-		//TODO Implement search
+		//FIXME Implement search
 		return this.rows;
 	}
 
+	//FIXME Improve this test
 	get(id: number): T | undefined {
-		//TODO Improve this test
 		return this.rows.find(row => 'id' in row ? row.id === id : false);
 	}
 }
