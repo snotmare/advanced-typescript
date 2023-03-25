@@ -22,7 +22,7 @@ export function exampleUndefined() {
 	let character = getCharacter(250);
 
 	//TODO Try writting a property of user instead of the user object (ex: user.firstName)
-	console.log(`user return ${character?.name}`);
+	console.log(`user return ${character}`);
 
 	console.log(`user return ${JSON.stringify(character)}`);
 }
