@@ -46,7 +46,7 @@ export function exampleForEach() {
 
 
 //#region keyof property
-type TransformBoolean<T extends object> = {
+type TransformBoolean<T> = {
 	[K in keyof T]?: boolean
 };
 
@@ -63,7 +63,7 @@ export function exampleProperty() {
 	logObject(stats, {charisma: true, dexterity: false, wisdom: true});
 }
 
-function logObject<T extends object>(value: T, printKeys: TransformBoolean<T>) {
+function logObject<T>(value: T, printKeys: TransformBoolean<T>) {
 	Object.keys(printKeys)
 		.filter(key => printKeys[<keyof T>key])
 		.forEach(key => console.log(`${key}: ${value[<keyof T>key]}`));
@@ -73,7 +73,7 @@ function logObject<T extends object>(value: T, printKeys: TransformBoolean<T>) {
 
 
 //#region keyof property part 2
-type Transform<T extends object, V> = {
+type Transform<T, V> = {
 	[K in keyof T]?: V
 };
 
@@ -90,7 +90,7 @@ export function exampleTransform() {
 	logObject2(stats, {charisma: true});
 }
 
-function logObject2<T extends object>(value: T, printKeys: Transform<T, boolean>) {
+function logObject2<T>(value: T, printKeys: Transform<T, boolean>) {
 	Object.keys(printKeys)
 		.filter(key => printKeys[<keyof T>key])
 		.forEach(key => console.log(`${key}: ${value[<keyof T>key]}`));
@@ -100,7 +100,7 @@ function logObject2<T extends object>(value: T, printKeys: Transform<T, boolean>
 
 
 //#region keyof property
-type ConditionalTransform<T extends object, V> = {
+type ConditionalTransform<T, V> = {
 	[K in keyof T as T[K] extends number ? K: never]?: V;
 };
 
@@ -118,7 +118,7 @@ export function exampleConditionalTransform() {
 	logNumbers(stats, {constitution: true});
 }
 
-function logNumbers<T extends object>(value: T, printKeys: ConditionalTransform<T, boolean>) {
+function logNumbers<T>(value: T, printKeys: ConditionalTransform<T, boolean>) {
 	Object.keys(printKeys)
 		.filter(key => printKeys[<keyof ConditionalTransform<T, boolean>>key])
 		.forEach(key => console.log(`${key}: ${value[<keyof T>key]}`));
