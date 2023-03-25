@@ -101,7 +101,7 @@ function logObject2<T>(value: T, printKeys: Transform<T, boolean>) {
 
 //#region keyof property
 type ConditionalTransform<T, V> = {
-	[K in keyof T as T[K] extends number ? K: never]?: V;
+	[K in keyof T as T[K] extends number ? K : never]?: V;
 };
 
 export function exampleConditionalTransform() {
