@@ -27,8 +27,8 @@ if(ReturnTypes || UtilityTypes || ConditionalTypes || KeyOf || ComplexTypes) {}
 // KeyOf.exampleTransform();
 // KeyOf.exampleConditionalTransform();
 
-// ComplexTypes.exampleKeyof();
 // ComplexTypes.examplePartial();
 // ComplexTypes.exampleDeepPartial();
+// ComplexTypes.exampleUnion();
 
 console.log('The demo is ready to go!');
