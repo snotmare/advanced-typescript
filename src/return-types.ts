@@ -7,7 +7,7 @@ export function exampleVoid() {
 	console.log(`log return: ${logReturn}`);
 }
 
-function logValue(value: string) {
+function logValue(value: string): void {
 	console.log(value);
 
 	//TODO Try uncommenting this
