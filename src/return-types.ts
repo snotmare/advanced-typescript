@@ -21,7 +21,7 @@ function logValue(value: string): void {
 export function exampleUndefined() {
 	let character = getCharacter(2);
 
-	//TODO Try writting a property of user instead of the user object (ex: user.firstName)
+	//TODO Try writing a property of character instead of the character object (ex: user.firstName)
 	console.log(`user return ${character}`);
 
 	console.log(`user return ${JSON.stringify(character)}`);
